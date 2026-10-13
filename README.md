@@ -20,7 +20,7 @@ A música de `sounds/fundo-ambientacao.mp3` toca em loop e pausa junto com o jog
 
 ## Executar pelo código
 
-Instale Python 3.10 ou superior e execute na pasta do projeto:
+Instale Python 3.12 e execute na pasta do projeto:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -31,13 +31,13 @@ Em distribuições Linux onde o comando é `python3`, use `python3` nos dois com
 
 ## Gerar o ZIP para Windows
 
-Em um computador Windows com Python instalado, abra a pasta do projeto no CMD e execute:
+Em um computador Windows, instale o [Python 3.12](https://www.python.org/downloads/) e confirme que o launcher encontra essa versão com `py -3.12 --version`. Depois, abra a pasta do projeto no PowerShell e execute:
 
-```bat
-build_windows.bat
+```powershell
+.\build_windows.bat
 ```
 
-O script instala as dependências, compila `main.py` com PyInstaller, copia os assets usados e gera `dist\ValeVerde-Windows.zip`. Esse é o arquivo a entregar. Para testar, extraia o ZIP e execute `ValeVerde.exe`. As pastas `assets` e `sounds` devem continuar ao lado do executável.
+O script usa especificamente o Python 3.12, mesmo que outra versão esteja instalada como padrão. Ele instala as dependências a partir de pacotes binários, compila `main.py` com PyInstaller, copia os assets usados e gera `dist\ValeVerde-Windows.zip`. Esse é o arquivo a entregar. Para testar, extraia o ZIP e execute `ValeVerde.exe`. As pastas `assets` e `sounds` devem continuar ao lado do executável.
 
 ## Organização dos assets
 

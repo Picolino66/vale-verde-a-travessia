@@ -2,10 +2,16 @@
 setlocal
 cd /d "%~dp0"
 
-py -m pip install -r requirements.txt pyinstaller
+py -3.12 --version >nul 2>&1
+if errorlevel 1 (
+    echo Python 3.12 nao encontrado. Instale o Python 3.12 para Windows e execute este script novamente.
+    exit /b 1
+)
+
+py -3.12 -m pip install --only-binary=:all: -r requirements.txt pyinstaller
 if errorlevel 1 goto :error
 
-py -m PyInstaller --noconfirm --clean --onefile --name ValeVerde main.py
+py -3.12 -m PyInstaller --noconfirm --clean --onefile --name ValeVerde main.py
 if errorlevel 1 goto :error
 
 if exist "dist\ValeVerde" rmdir /S /Q "dist\ValeVerde"
